@@ -1,6 +1,7 @@
 ﻿namespace LAB3.interfcaces;
 
-public class IContainer 
+public interface IContainer
 {
-    
+    void Unload();
+    void Load(double cargoWeight);
 }

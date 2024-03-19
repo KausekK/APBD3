@@ -1,40 +1,29 @@
 ﻿
 
+using LAB3.Exceptions;
 using LAB3.interfcaces;
 
 namespace LAB3.Containers;
 
-public class Container : IContainer
+public abstract class Container : IContainer
 {
     public double CargoWeight { get; set; }
     public double Height { get; set; }
 
-    public Container(double cargoWeight, double height)
+    protected Container(double cargoWeight, double height)
     {
         CargoWeight = cargoWeight;
         Height = height;
     }
 
-    private double _cargoWeight;
-    private double _height;
-
-    public double GetCargoWeight()
+    public void Unload()
     {
-        return _cargoWeight;
+        throw new NotImplementedException();
     }
 
-    public void SetCargoWeight(double value)
+    public virtual void Load(double cargoWeight)
     {
-        _cargoWeight = value;
-    }
-
-    public double GetHeight()
-    {
-        return _height;
-    }
-
-    public void SetHeight(double value)
-    {
-        _height = value;
+        CargoWeight = cargoWeight;
+        throw new OverfillException();
     }
 }
