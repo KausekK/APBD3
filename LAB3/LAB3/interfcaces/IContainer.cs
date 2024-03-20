@@ -3,5 +3,5 @@
 public interface IContainer
 {
     void Unload();
-    void Load(double cargoWeight);
+    void Load(double cargoWeight, string serialNumber);
 }

@@ -1,4 +1,6 @@
-﻿namespace LAB3.Exceptions;
+﻿using System;
+
+namespace LAB3.Exceptions;
 
 public class OverfillException : Exception
 {
