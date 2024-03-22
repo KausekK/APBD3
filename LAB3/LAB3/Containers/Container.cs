@@ -17,6 +17,7 @@ public abstract class Container : IContainer
 
     public string SerialNumber { get;  set; }
     public double MaxPayload { get; set; }
+    public ContainerType Type { get; set; }
 
     protected Container(double cargoWeight, double height, double containerWeight, double depth, double maxPayload, ContainerType type)
     {
@@ -26,6 +27,7 @@ public abstract class Container : IContainer
         Depth = depth;
         SerialNumber = GenerateSerialNumber(type);
         MaxPayload = maxPayload;
+        Type = type;
     }
 
     public virtual void Unload()
@@ -84,7 +86,7 @@ public abstract class Container : IContainer
     }
     public override string ToString()
     {
-        return $"Serial Number: {SerialNumber}, Cargo Weight: {CargoWeight}, Height: {Height}, Container Weight: {ContainerWeight}, Depth: {Depth}, Max Payload: {MaxPayload}";
+        return $"Serial Number: {SerialNumber}, Cargo Weight: {CargoWeight}, Height: {Height}, Container Weight: {ContainerWeight}, Depth: {Depth}, Max Payload: {MaxPayload}, Type: {Type}";
     }
     
 }

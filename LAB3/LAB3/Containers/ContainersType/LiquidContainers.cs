@@ -20,7 +20,8 @@ public class LiquidContainer : Container, IHazardNotifier
         {
             throw new OverfillException("Cannot load dangerous cargo exceeding 50 % of max payload.");
         }
-        else if (!_isDangerous)
+
+        if (!_isDangerous)
         {
             base.Load(cargoWeight * 0.9, serialNumber);
         }

@@ -107,7 +107,7 @@ public class Ship
 
         foreach (var container in Containers)
         {
-            shipInfo += container.ToString() + "\n";
+            shipInfo += container + "\n";
         }
 
         return shipInfo;
