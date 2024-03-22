@@ -42,6 +42,20 @@ public abstract class Container : IContainer
         }
     }
   
+    public static Container CreateContainer(ContainerType type, double cargoWeight, double height, double containerWeight, double depth, double maxPayload, string productType = null, double containerTemperature = 0, int pressure = 0 , bool isDangerous = false)
+    {
+        switch (type)
+        {
+            case ContainerType.Cooling:
+                return new CoolingContainer(cargoWeight, height, containerWeight, depth, maxPayload,type ,productType, containerTemperature);
+            case ContainerType.Gas:
+                return new GasContainer(cargoWeight, height, containerWeight, depth, maxPayload, type, pressure);
+            case ContainerType.Liquids:
+                return new LiquidContainer(cargoWeight, height, containerWeight, depth, maxPayload, isDangerous);
+            default:
+                throw new ArgumentException("Invalid container type");
+        }
+    }
 
     private string GenerateSerialNumber(ContainerType type)
     {
@@ -68,5 +82,9 @@ public abstract class Container : IContainer
         NextSerialNumber++;
         return serialNumber;
     }
-
+    public override string ToString()
+    {
+        return $"Serial Number: {SerialNumber}, Cargo Weight: {CargoWeight}, Height: {Height}, Container Weight: {ContainerWeight}, Depth: {Depth}, Max Payload: {MaxPayload}";
+    }
+    
 }
